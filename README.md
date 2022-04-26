@@ -1,0 +1,1 @@
+This is the README folder for the holbertonschool-higher_level_programming curriculum.
