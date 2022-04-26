@@ -13,16 +13,16 @@ int check_cycle(listint_t *list)
 		return (0);
 
 	current = current->next;
-
 	while (current->next != NULL)
 	{
 		if (current == tmp)
 			return (1);
-
 		current = current->next;
-		
+
 		if (current == NULL)
 			return (0);
+		current = current->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }
