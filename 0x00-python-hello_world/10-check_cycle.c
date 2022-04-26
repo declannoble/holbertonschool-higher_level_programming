@@ -12,11 +12,15 @@ int check_cycle(listint_t *list)
 	if (list == NULL || list->next == NULL)
 		return (0);
 
+	current = current->next;
+
 	while (current->next != NULL)
 	{
-		if (current == temp)
+		if (current == tmp)
 			return (1);
 
+		current = current->next;
+		
 		if (current == NULL)
 			return (0);
 	}
