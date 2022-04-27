@@ -1,4 +1,4 @@
 def print_last_digit(number):
-    lastdigit = abs(number) % 10
+    lastdigit = int(repr(number)[-1])
     print(lastdigit, end="")
     return(lastdigit)
