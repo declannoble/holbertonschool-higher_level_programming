@@ -4,5 +4,4 @@ for alpha in range (00,100):
     if alpha != 99:
             print(f"{alpha:02}", end=", ")
     else:
-        print(f"{alpha:02}")
-    
+        print(f"{alpha:02}", end="\n")
