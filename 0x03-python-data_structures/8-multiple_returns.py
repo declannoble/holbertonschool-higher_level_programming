@@ -2,6 +2,6 @@
 
 def multiple_returns(sentence):
     senlen = len(sentence)
-    if sentence == "":
+    if sentence == '':
         return(0,None)
-    return(senlen), sentence[0])
+    return(senlen, sentence[0])
