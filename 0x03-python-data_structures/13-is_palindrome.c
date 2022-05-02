@@ -1,13 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
+
 /**
- * is_palindrome- checks if a linked list is a palindrome
- * @head: pointer to head of list
- * Return: 0 if not, and 1 if so.
+ * is_palindrome - check if a linked list is a palindrome
+ * @head: start of linked list
+ * Return: 1 if false, 0 if true
  */
 
-int is_palindrome(listint_t **head);
+int is_palindrome(listint_t **head)
 {
-	if (*head == NULL || *head->next == NULL)
-		return (1);
+    if (*head == NULL || (*head)->next == NULL)
+	return (1);
 
+    return(0);
 }
