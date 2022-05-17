@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+
+
 """ Defining a square class with a private instance attribute 'size' """
+
+
 class Square:
     """instantiating data"""
     def __init__(self, size=0):
