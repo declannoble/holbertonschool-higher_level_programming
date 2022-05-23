@@ -12,7 +12,10 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """ returns a new class instance- w==h==s """
+        """
+        Returns a new Rectangle instance where
+        width == height == size
+        """
         return cls(size, size)
 
     @staticmethod
