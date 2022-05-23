@@ -3,7 +3,6 @@
 
 class Rectangle:
     """ Defining an empty class Rectangle """
-
     number_of_instances = 0
     print_symbol = "#"
 
@@ -17,7 +16,6 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
-
 
     def __init__(self, width=0, height=0):
         """ Initialising rectangle """

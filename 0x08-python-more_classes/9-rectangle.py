@@ -23,7 +23,6 @@ class Rectangle:
             return rect_1
         return rect_2
 
-
     def __init__(self, width=0, height=0):
         """ Initialising rectangle """
         self.height = height
