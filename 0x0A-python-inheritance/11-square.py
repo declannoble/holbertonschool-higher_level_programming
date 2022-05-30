@@ -21,6 +21,6 @@ class Square(Rectangle):
         """ Calculator area """
         return self.__size * self.__size
 
-    def __str__(self):
+    def __repr__(self):
         """ returns an inormal string rep """
         return (f"[Square] {self.__size}/{self.__size}")
