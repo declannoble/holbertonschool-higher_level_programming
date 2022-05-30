@@ -9,10 +9,13 @@ class Square(Rectangle):
     """ class Square that inherits from Rectangle """
 
     def __init__(self, size):
-        """ initialising data """
-        self.__size = size
+        """
+        initialising data
+
+        size = width and height
+        """
         self.integer_validator("size", size)
-        super().__init__(size, size)
+        self.__size = size
 
     def area(self):
         """ Calculator area """
