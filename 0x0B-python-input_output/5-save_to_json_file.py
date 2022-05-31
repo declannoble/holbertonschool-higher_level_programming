@@ -6,6 +6,7 @@ save_to_json module
 
 import json
 
+
 def save_to_json_file(my_obj, filename):
     """
     function to write object to text
