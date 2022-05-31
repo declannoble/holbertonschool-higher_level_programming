@@ -6,5 +6,5 @@ module to append string at end of file
 
 def append_write(filename="", text=""):
     """ function to append string"""
-    with open(filename, "a", encoding="utf-8") as f:
+    with open(filename, "s", encoding="utf-8") as f:
         return f.write(text)
