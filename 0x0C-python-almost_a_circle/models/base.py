@@ -5,10 +5,10 @@ Base class module
 from fileinput import filename
 import json
 
+
 class Base:
     """Base class"""
     __nb_objects = 0
-
 
     def __init__(self, id=None):
         """initialising base class"""
@@ -16,7 +16,7 @@ class Base:
             self.id = id
         else:
             Base.__nb_objects += 1
-            self.id= Base.__nb_objects
+            self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -54,12 +54,12 @@ class Base:
         if json_string is None or len(json_string) <= 0:
             return "[]"
         else:
-          return json.loads(json_string)
+            return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
         """
-        returns an instance with 
+        returns an instance with
         attributes already set
         """
         dummy = cls(1, 1)

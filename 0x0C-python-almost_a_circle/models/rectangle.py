@@ -42,7 +42,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("width must be > 0" )
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @height.setter
@@ -87,7 +87,6 @@ class Rectangle(Base):
                 print("#", end='')
             print()
 
-
     def __str__(self):
         """overriding str method"""
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - "\
@@ -124,5 +123,5 @@ class Rectangle(Base):
         returns a dictionary representation
         of a rectangle
         """
-        return {"x": self.x, "y": self.y, "id": self.id, 
-        "height": self.height, "width": self.width}
+        return {"x": self.x, "y": self.y, "id": self.id,
+                "height": self.height, "width": self.width}

@@ -4,6 +4,7 @@ square class module
 """
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
@@ -51,5 +52,5 @@ class Square(Rectangle):
         returns a dictionary representation of
         a square
         """
-        return {"id": self.id, "size": self.size, 
-        "x": self.x, "y": self.y}
+        return {"id": self.id, "size": self.size,
+                "x": self.x, "y": self.y}
