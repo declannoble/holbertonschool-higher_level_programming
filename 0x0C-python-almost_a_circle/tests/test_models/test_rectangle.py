@@ -46,11 +46,6 @@ class TestRectangleDocs(unittest.TestCase):
         """Tests for docstring"""
         self.assertTrue(len(Rectangle.__doc__) >= 1)
 
-    def test_func_docstr(self):
-        """Tests for docstrings in all functions"""
-        for func in self.rect_funcs:
-            self.assertTrue(len(func[1].__doc__) >= 1)
-
 
 class TestRectangle(unittest.TestCase):
     """ Tests functionality of class"""
