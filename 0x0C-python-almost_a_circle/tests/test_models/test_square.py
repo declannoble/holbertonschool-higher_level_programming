@@ -225,3 +225,15 @@ class TestSquare(unittest.TestCase):
         errmsg = 'to_dictionary() takes 1 positional argument but 2 were given'
         with self.assertRaises(TypeError):
             s1_dictionary = s1.to_dictionary({"id": 1, "x": 1, "y": 1})
+
+    def test_string(self):
+        """ Test for the string representation"""
+        s = Square(1, 2, 2, 1)
+        self.assertEqual(str(s), "[Square] (1) 2/2 - 1")
+
+    def test_area(self):
+        """ test area methof for square """
+        s_1 = Square(size=2)
+        self.assertEqual(self.s_1.area(), 4)
+        s_2 = Square(size=6)
+        self.assertEqual(self.s_2.area(), 36)
