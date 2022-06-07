@@ -1,34 +1,55 @@
 #!/usr/bin/python3
-"""
-Test for the Square class
-"""
+""" Contains tests for class Square"""
+
 
 import unittest
 import inspect
-from models import square
+import pycodestyle
+
 from models.base import Base
+from models import square
 Square = square.Square
 
 
 class TestSquareDocs(unittest.TestCase):
-    """Tests the Square class' style and documentation"""
+    """ Tests for documentation of class"""
+
     @classmethod
     def setUpClass(cls):
         """Set up for the doc tests"""
-        cls.sq_funcs = inspect.getmembers(Square, inspect.isfunction)
+        cls.square_funcs = inspect.getmembers(Square, inspect.isfunction)
 
-    def test_module_docstring(self):
-        """Tests for the presence of a module docstring"""
+    def test_conformance_class(self):
+        """Test that we conform to Pycodestyle."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_conformance_test(self):
+        """Test that we conform to Pycodestyle."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['tests/test_models/test_square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
+    def test_module_docstr(self):
+        """ Tests for docstring"""
         self.assertTrue(len(square.__doc__) >= 1)
 
-    def test_class_docstring(self):
-        """Tests for the presence of a class docstring"""
+    def test_class_docstr(self):
+        """ Tests for docstring"""
         self.assertTrue(len(Square.__doc__) >= 1)
 
+    def test_func_docstr(self):
+        """Tests for docstrings in all functions"""
+        for func in self.square_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
 
 class TestSquare(unittest.TestCase):
-    """Test the functionality of the Square class"""
+    """ Test for functionality of class"""
+
     @classmethod
     def setUpClass(cls):
         """set up the tests"""
@@ -37,6 +58,18 @@ class TestSquare(unittest.TestCase):
         cls.s2 = Square(2, 3)
         cls.s3 = Square(4, 5, 6)
         cls.s4 = Square(7, 8, 9, 10)
+
+    def test_str(self):
+        """Test the __str__ method"""
+        self.assertEqual(str(self.s1), "[Square] (1) 0/0 - 1")
+        self.assertEqual(str(self.s2), "[Square] (2) 3/0 - 2")
+
+    def test_id(self):
+        """test if id is not given"""
+        self.assertEqual(self.s1.id, 1)
+        self.assertEqual(self.s2.id, 2)
+        self.assertEqual(self.s3.id, 3)
+        self.assertEqual(self.s4.id, 10)
 
     def test_size(self):
         """Test for functioning size"""
@@ -76,6 +109,11 @@ class TestSquare(unittest.TestCase):
         """Test with no args"""
         with self.assertRaises(TypeError):
             s = Square()
+
+    def test_toomanyArgs(self):
+        """Test with too many args"""
+        with self.assertRaises(TypeError):
+            r = Square(1, 2, 3, 4, 5, 6)
 
     def test_sizeWrongData(self):
         """Test non-ints for size"""
@@ -121,6 +159,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.s2.area(), 4)
         self.assertEqual(self.s3.area(), 16)
         self.assertEqual(self.s4.area(), 49)
+
+    def test_area_args(self):
+        """Test too many args for area()"""
+        with self.assertRaises(TypeError):
+            r = self.s3.area(1)
 
     def test_issubclass(self):
         """test to check sub class"""
@@ -225,15 +268,3 @@ class TestSquare(unittest.TestCase):
         errmsg = 'to_dictionary() takes 1 positional argument but 2 were given'
         with self.assertRaises(TypeError):
             s1_dictionary = s1.to_dictionary({"id": 1, "x": 1, "y": 1})
-
-    def test_string(self):
-        """ Test for the string representation"""
-        s = Square(1, 2, 2, 1)
-        self.assertEqual(str(s), "[Square] (1) 2/2 - 1")
-
-    def test_area(self):
-        """ test area methof for square """
-        s_1 = Square(size=2)
-        self.assertEqual(self.s_1.area(), 4)
-        s_2 = Square(size=6)
-        self.assertEqual(self.s_2.area(), 36)
