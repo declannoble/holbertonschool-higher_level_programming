@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" script that adds the State object “Louisiana” to the database
- hbtn_0e_6_usa """
+""" script that lists all City objects from the database hbtn_0e_14_usa """
 
 
 import sys
 from model_state import Base, State
+from model_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import Session, sessionmaker
 
@@ -16,8 +16,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state6 = State(name="Louisiana")
-    session.add(state6)
-    session.commit()
-    print(f"{state6.id}")
+    cities = session.query(City, State).filter(City.state_id == State.id).\
+        order_by(City.id).all()
+    for c, s in cities:
+        print(f"{s.name}: ({c.id}) {c.name}")
     session.close()
