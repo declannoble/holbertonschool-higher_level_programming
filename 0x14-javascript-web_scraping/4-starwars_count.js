@@ -15,4 +15,4 @@ axios.get(URL)
       }
     }
     console.log(wedgeCount);
-  })
+  });
